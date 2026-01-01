@@ -13,7 +13,19 @@ import { ObfuscatedMail } from "@/components/obfuscated-mail";
 
 const BLUR_FADE_DELAY = 0.02;
 
-export default function Page() {
+async function getGithubData(username: string) {
+  try {
+    const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`);
+    const json = await res.json();
+    return json.contributions;
+  } catch {
+    return [];
+  }
+}
+
+export default async function Page() {
+  const contributionData = await getGithubData(DATA.contact.social.GitHub.url.split("/").pop() ?? "");
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -81,7 +93,7 @@ export default function Page() {
             </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <GithubCalendarComponent username={DATA.contact.social.GitHub.url.split("/").pop() ?? ""} />
+            <GithubCalendarComponent data={contributionData} />
           </BlurFade>
         </div>
       </section>
