@@ -22,12 +22,12 @@ export default function BlurFade({
     children,
     className,
     variant,
-    duration = 0.2,
+    duration = 0.1,
     delay = 0,
     yOffset = 6,
     inView = false,
     inViewMargin = "-50px",
-    blur = "2px",
+    blur = "1px",
 }: BlurFadeProps) {
     const ref = useRef(null);
     const inViewResult = useInView(ref, { once: true, margin: inViewMargin });

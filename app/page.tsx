@@ -11,7 +11,7 @@ import Link from "next/link";
 import LetterPullup from "@/components/magicui/letter-pullup";
 import { ObfuscatedMail } from "@/components/obfuscated-mail";
 
-const BLUR_FADE_DELAY = 0.04;
+const BLUR_FADE_DELAY = 0.02;
 
 export default function Page() {
   return (
