@@ -17,8 +17,8 @@ export default function Navbar() {
     const { setTheme, theme } = useTheme();
 
     return (
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex h-14">
-            <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
+        <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30 mx-auto flex h-14">
+            <div className="fixed bottom-0 inset-x-0 h-24 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
             <div className="z-50 mx-auto flex h-full items-center justify-center gap-2 rounded-full border bg-background px-4 pointer-events-auto">
                 <Tooltip>
                     <TooltipTrigger asChild>
