@@ -128,7 +128,7 @@ export const DATA = {
         {
             title: "Pastebin Lite",
             href: "https://pastebin-lite-two.vercel.app/",
-            dates: "Jan 2025",
+            dates: "Dec 2025",
             active: true,
             description:
                 "Secure Text Sharing Platform. Built production-ready pastebin application with advanced security features, including password protection, TTL expiry, and encryption. Developed a comprehensive REST API supporting 15+ programming languages with syntax highlighting.",
