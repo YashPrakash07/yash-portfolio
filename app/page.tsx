@@ -15,7 +15,10 @@ const BLUR_FADE_DELAY = 0.02;
 
 async function getGithubData(username: string) {
   try {
-    const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`);
+    const res = await fetch(
+      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
+      { next: { revalidate: 86400 } }
+    );
     const json = await res.json();
     return json.contributions;
   } catch {
