@@ -13,10 +13,10 @@ import { ObfuscatedMail } from "@/components/obfuscated-mail";
 
 const BLUR_FADE_DELAY = 0.02;
 
-async function getGithubData(username: string) {
+async function getGithubData(username: string, year: number) {
   try {
     const res = await fetch(
-      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
+      `https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`,
       { next: { revalidate: 86400 } }
     );
     const json = await res.json();
@@ -27,7 +27,8 @@ async function getGithubData(username: string) {
 }
 
 export default async function Page() {
-  const contributionData = await getGithubData(DATA.contact.social.GitHub.url.split("/").pop() ?? "");
+  const currentYear = new Date().getFullYear();
+  const contributionData = await getGithubData(DATA.contact.social.GitHub.url.split("/").pop() ?? "", currentYear);
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
@@ -90,7 +91,7 @@ export default async function Page() {
                   My GitHub Contributions
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Here is my coding activity over the last year.
+                  Here is my coding activity in {currentYear}.
                 </p>
               </div>
             </div>
