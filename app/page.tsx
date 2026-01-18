@@ -10,8 +10,9 @@ import { DownloadIcon } from "lucide-react";
 import Link from "next/link";
 import LetterPullup from "@/components/magicui/letter-pullup";
 import { ObfuscatedMail } from "@/components/obfuscated-mail";
+import { DailyQuote } from "@/components/daily-quote";
 
-const BLUR_FADE_DELAY = 0.02;
+const BLUR_FADE_DELAY = 0;
 
 async function getGithubData(username: string, year: number) {
   try {
@@ -31,7 +32,7 @@ export default async function Page() {
   const contributionData = await getGithubData(DATA.contact.social.GitHub.url.split("/").pop() ?? "", currentYear);
 
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col min-h-[100dvh] space-y-16">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -71,7 +72,7 @@ export default async function Page() {
       </section >
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">About</h2>
+          <h2 className="text-xl font-bold tracking-tighter">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <p className="prose max-w-full text-pretty font-sans text-muted-foreground dark:prose-invert mt-4">
@@ -104,7 +105,7 @@ export default async function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
+            <h2 className="text-xl font-bold tracking-tighter">Work Experience</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
@@ -129,7 +130,7 @@ export default async function Page() {
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Education</h2>
+            <h2 className="text-xl font-bold tracking-tighter">Education</h2>
           </BlurFade>
           {DATA.education.map((edu, id) => (
             <BlurFade
@@ -152,7 +153,7 @@ export default async function Page() {
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
+            <h2 className="text-xl font-bold tracking-tighter">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
@@ -233,6 +234,10 @@ export default async function Page() {
           </BlurFade>
         </div>
       </section>
+
+      <BlurFade delay={BLUR_FADE_DELAY * 17}>
+        <DailyQuote />
+      </BlurFade>
     </main >
   );
 }

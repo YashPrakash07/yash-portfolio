@@ -66,7 +66,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
-        heading: ["var(--font-plus-jakarta-sans)", "sans-serif"],
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

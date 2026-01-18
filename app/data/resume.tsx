@@ -126,6 +126,29 @@ export const DATA = {
     ],
     projects: [
         {
+            title: "RoutineFlow",
+            href: "https://github.com/YashPrakash07/RoutineFlow",
+            dates: "Jan 2026 - Present",
+            active: true,
+            description:
+                "Adaptive Daily Routine Planner. A smart mobile app built with React Native and Expo that helps you plan your daily routines and adapts when you skip or delay tasks. Features AI-powered rhythm learning and intelligent rescheduling.",
+            technologies: [
+                "React Native",
+                "Expo",
+                "TypeScript",
+                "Supabase",
+                "PostgreSQL",
+            ],
+            links: [
+                {
+                    type: "Source",
+                    href: "https://github.com/YashPrakash07/RoutineFlow",
+                    icon: Icons.github,
+                },
+            ],
+            image: "/routineflow_mockup.png",
+        },
+        {
             title: "Pastebin Lite",
             href: "https://pastebin-lite-two.vercel.app/",
             dates: "Dec 2025",

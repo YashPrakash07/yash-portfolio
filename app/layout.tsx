@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,11 +8,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
+
 
 import { DATA } from "@/app/data/resume";
 
@@ -71,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} font-sans antialiased max-w-2xl mx-auto py-6 sm:py-12 px-6`}
+        className={`${inter.variable} font-sans antialiased max-w-2xl mx-auto py-6 sm:py-12 px-6`}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
