@@ -18,18 +18,23 @@ async function getGithubData(username: string, year: number) {
   try {
     const res = await fetch(
       `https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`,
-      { next: { revalidate: 86400 } }
+      { next: { revalidate: 60 } }
     );
+    if (!res.ok) {
+      throw new Error(`Failed to fetch GitHub data: ${res.statusText}`);
+    }
     const json = await res.json();
     return json.contributions;
-  } catch {
+  } catch (error) {
+    console.error("Error fetching GitHub contributions:", error);
     return [];
   }
 }
 
 export default async function Page() {
   const currentYear = new Date().getFullYear();
-  const contributionData = await getGithubData(DATA.contact.social.GitHub.url.split("/").pop() ?? "", currentYear);
+  const githubUsername = DATA.contact.social.GitHub.url.replace(/\/$/, "").split("/").pop() ?? "";
+  const contributionData = await getGithubData(githubUsername, currentYear);
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-16">
