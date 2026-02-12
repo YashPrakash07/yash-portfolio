@@ -67,11 +67,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans antialiased max-w-2xl mx-auto py-6 sm:py-12 px-6`}
+        className={`${inter.variable} font-sans antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            {children}
+            <div className="max-w-2xl mx-auto py-6 sm:py-12 px-6 min-h-screen">
+              {children}
+            </div>
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>
